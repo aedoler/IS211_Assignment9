@@ -9,6 +9,7 @@ page = urllib2.urlopen(url)
 soup = BeautifulSoup(page.read())
 
 trs = soup.find_all('tr')
+top20Counter = 0
 
 for tr in trs:
     for link in tr.find_all('a'):
@@ -25,5 +26,8 @@ for tr in trs:
 
     except:
         continue
+    top20Counter += 1
+    if top20Counter > 20:
+        break
 
     print "Name: {} | Position: {} | Team: {} | Touchdowns {}.".format(names, position, team, touchdowns)
