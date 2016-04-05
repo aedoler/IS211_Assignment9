@@ -15,17 +15,15 @@ url = "https://www.wunderground.com/history/airport/KNYC/2015/1/11/MonthlyHistor
 page = urllib2.urlopen(url)
 soup = BeautifulSoup(page.read())
 
-#table = soup.findAll("table")
-#print table[7]
+
 
 trs = soup.find_all('tr')
 
 
-
 for tr in trs:
 
-    tds = tr.find_all("td")
 
+    tds = tr.find_all("td")
 
 
     for link in tr.find_all('a'):
